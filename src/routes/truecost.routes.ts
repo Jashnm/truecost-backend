@@ -1,9 +1,9 @@
 import express from "express";
-import flightEmissionController from "../controllers/flightEmission.controller";
+import calculateEmissionController from "../controllers/calculateEmission.controller";
 import protect from "../middleware/auth";
-import {preHandler } from "../middleware/preHandler";
+import { preHandler } from "../middleware/preHandler";
 const router = express.Router();
 
-router.post("/:type", protect, preHandler, flightEmissionController);
+router.post("/:type", protect, preHandler, calculateEmissionController);
 
 export default router;
