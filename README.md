@@ -4,8 +4,6 @@
 
 ```bash
 npm i
-# or
-yarn
 ```
 
 2. create `.env` file and add the environment variables -
@@ -15,15 +13,12 @@ PORT=
 FLIGHT_KEY=
 TRANSPORT_KEY=
 COMMUTE_KEY=
-
 ```
 
 3. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 4. Make GET request to [http://localhost:8080/](http://localhost:8080/) to check if API is running.
