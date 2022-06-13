@@ -27,7 +27,7 @@ export default async function (req: Request, res: Response) {
         emission = 0;
     }
 
-    res.status(200).json({ emission: Math.floor(emission) });
+    res.status(200).json({ emission: Math.ceil(emission) });
   } catch (err) {
     res.status(400).json({ message: "Incomplete data" });
   }
@@ -48,6 +48,7 @@ const flightsEmission = (req: Request) => {
     noOfTickets *
     (distance < 480 ? 0.25 : distance < 3678 ? 0.14 : 0.17) *
     (type === "one-way" ? 1 : 2);
+
   return emission;
 };
 
@@ -64,5 +65,7 @@ const transportEmission = (req: Request) => {
 
 const commuteEmission = (req: Request) => {
   const { noOfKms, typeOfFuel, typeOfVehicle } = req.body as ICommuteValues;
+  console.log(req.body);
+
   return noOfKms * getFuelPoint(typeOfFuel) * getVehiclePoint(typeOfVehicle);
 };
